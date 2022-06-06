@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "a1b276c6-073c-41b9-9798-4a34bded5345",
+		"name": "Dibimbing - FE Mini Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"budi\",\r\n  \"password\":\"budi\",\r\n  \"address\": \"kediri\",\r\n  \"phone_number\": \"08212222\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "API untuk mendaftarkan/meregister akun admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"budi\",\r\n  \"password\":\"budi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "API untuk Login admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imloc2FuQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiaWhzYW4iLCJpYXQiOjE2NTIyODI1NjgsImV4cCI6MTY1MjI4NjE2OH0.82mfynxkO7YRqeY5JqjckkZNCvo3pM5wxi58uaCnPdg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "API untuk mendapatkan list semua products"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"2"
+					]
+				},
+				"description": "API untuk mendapatkan data product berdasarkan id"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/products?q=lap",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "lap"
+						}
+					]
+				},
+				"description": "API untuk mencari nama product"
+			},
+			"response": []
+		},
+		{
+			"name": "Paginate List Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/products?_page=1&_limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "_page",
+							"value": "1"
+						},
+						{
+							"key": "_limit",
+							"value": "2"
+						}
+					]
+				},
+				"description": "API untuk mendapatkan beberapa list product berdasarkan halaman dan limit"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnVkaSIsImFkZHJlc3MiOiJrZWRpcmkiLCJqb2luX2RhdGUiOiIyMDIyLTA1LTEyVDE1OjE1OjU1LjY1M1oiLCJwaG9uZV9udW1iZXIiOiIwODIxMjIyMiIsImlhdCI6MTY1MjM2ODU3NiwiZXhwIjoxNjUyMzcyMTc2fQ.Y62PlFlBdahYGD3oAAHE_DQWmj2lfXV935pUZAU6bW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imloc2FuQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiaWhzYW4iLCJpYXQiOjE2NTIyODg2OTMsImV4cCI6MTY1MjI5MjI5M30.oZc0sebPDMkXqjB-1HGCII1YvZBezsxSiKenE7Xr5Jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kabel\",\r\n    \"price\": 1500,\r\n    \"quantity\": 129\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "API untuk menambahkan data product"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnVkaSIsImFkZHJlc3MiOiJrZWRpcmkiLCJqb2luX2RhdGUiOiIyMDIyLTA1LTEyVDE1OjE1OjU1LjY1M1oiLCJwaG9uZV9udW1iZXIiOiIwODIxMjIyMiIsImlhdCI6MTY1MjM2ODU3NiwiZXhwIjoxNjUyMzcyMTc2fQ.Y62PlFlBdahYGD3oAAHE_DQWmj2lfXV935pUZAU6bW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imloc2FuQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiaWhzYW4iLCJpYXQiOjE2NTIyODMxODUsImV4cCI6MTY1MjI4Njc4NX0.UTaJ7oTIrCN_r5g55N_We8-pWxyyUXUQIZ8mE-cNzQ8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/products/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"3"
+					]
+				},
+				"description": "API untuk menghapus data product berdasarkan id"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnVkaSIsImFkZHJlc3MiOiJrZWRpcmkiLCJqb2luX2RhdGUiOiIyMDIyLTA1LTEyVDE1OjE1OjU1LjY1M1oiLCJwaG9uZV9udW1iZXIiOiIwODIxMjIyMiIsImlhdCI6MTY1MjM2ODU3NiwiZXhwIjoxNjUyMzcyMTc2fQ.Y62PlFlBdahYGD3oAAHE_DQWmj2lfXV935pUZAU6bW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imloc2FuQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiaWhzYW4iLCJpYXQiOjE2NTIyODI1NjgsImV4cCI6MTY1MjI4NjE2OH0.82mfynxkO7YRqeY5JqjckkZNCvo3pM5wxi58uaCnPdg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kabel USB Type C\",\r\n    \"price\": 15000,\r\n    \"quantity\": 19    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/products/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"5"
+					]
+				},
+				"description": "API untuk mengubah/mengedit/mengupdate data product berdasarkan id"
+			},
+			"response": []
+		}
+	]
+}
